@@ -40,9 +40,13 @@ class Aliment
     #[ORM\OneToMany(mappedBy: 'Aliment', targetEntity: DetailSondage::class)]
     private Collection $detailSondages;
 
+    #[ORM\OneToMany(mappedBy: 'Aliment1', targetEntity: Sondage::class)]
+    private Collection $sondages;
+
     public function __construct()
     {
         $this->detailSondages = new ArrayCollection();
+        $this->sondages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -146,6 +150,36 @@ class Aliment
             // set the owning side to null (unless already changed)
             if ($detailSondage->getAliment() === $this) {
                 $detailSondage->setAliment(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Sondage>
+     */
+    public function getSondages(): Collection
+    {
+        return $this->sondages;
+    }
+
+    public function addSondage(Sondage $sondage): self
+    {
+        if (!$this->sondages->contains($sondage)) {
+            $this->sondages->add($sondage);
+            $sondage->setAliment1($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSondage(Sondage $sondage): self
+    {
+        if ($this->sondages->removeElement($sondage)) {
+            // set the owning side to null (unless already changed)
+            if ($sondage->getAliment1() === $this) {
+                $sondage->setAliment1(null);
             }
         }
 

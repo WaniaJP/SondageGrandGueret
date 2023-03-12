@@ -9,9 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: InformationNutritionelleRepository::class)]
 class InformationNutritionelle
 {
-
     #[ORM\Id]
-    #[ORM\OneToOne(mappedBy: 'InformationNutritionelle', cascade: ['persist', 'remove'])]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\OneToOne(mappedBy: 'InformationNutritionelle')]
     private ?Aliment $aliment = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 7, nullable: true)]
@@ -206,6 +209,10 @@ class InformationNutritionelle
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 7, nullable: true)]
     private ?string $Vitamine_B5_AcidePan_mg100g = null;
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getEnergieReglementUEKJ100g(): ?string
     {

@@ -18,8 +18,20 @@ class Sondage
     #[ORM\JoinColumn(nullable: false)]
     private ?Utilisateur $IdUtilisateur = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    #[ORM\Column(type: Types::DATE_IMMUTABLE)]
     private ?\DateTimeInterface $DateCreation = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment1 = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment2 = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment3 = null;
 
     public function getId(): ?int
     {
@@ -46,6 +58,42 @@ class Sondage
     public function setDateCreation(\DateTimeInterface $DateCreation): self
     {
         $this->DateCreation = $DateCreation;
+
+        return $this;
+    }
+
+    public function getAliment1(): ?Aliment
+    {
+        return $this->Aliment1;
+    }
+
+    public function setAliment1(?Aliment $Aliment1): self
+    {
+        $this->Aliment1 = $Aliment1;
+
+        return $this;
+    }
+
+    public function getAliment2(): ?Aliment
+    {
+        return $this->Aliment2;
+    }
+
+    public function setAliment2(?Aliment $Aliment2): self
+    {
+        $this->Aliment2 = $Aliment2;
+
+        return $this;
+    }
+
+    public function getAliment3(): ?Aliment
+    {
+        return $this->Aliment3;
+    }
+
+    public function setAliment3(?Aliment $Aliment3): self
+    {
+        $this->Aliment3 = $Aliment3;
 
         return $this;
     }
