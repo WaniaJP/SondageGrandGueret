@@ -25,13 +25,41 @@ class Sondage
     #[ORM\JoinColumn(nullable: false)]
     private ?Aliment $Aliment1 = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Aliment $Aliment2 = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Aliment $Aliment3 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment4 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment5 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment6 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment7 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment8 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment9 = null;
+
+    #[ORM\ManyToOne(inversedBy: 'sondages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Aliment $Aliment10 = null;
 
     public function getId(): ?int
     {
@@ -97,4 +125,89 @@ class Sondage
 
         return $this;
     }
+
+    public function getAliment4(): ?Aliment
+    {
+        return $this->Aliment4;
+    }
+
+    public function setAliment4(?Aliment $Aliment4): self
+    {
+        $this->Aliment4 = $Aliment4;
+
+        return $this;
+    }
+
+    public function getAliment5(): ?Aliment
+    {
+        return $this->Aliment5;
+    }
+
+    public function setAliment5(?Aliment $Aliment5): self
+    {
+        $this->Aliment5 = $Aliment5;
+
+        return $this;
+    }
+
+    public function getAliment6(): ?Aliment
+    {
+        return $this->Aliment6;
+    }
+
+    public function setAliment6(?Aliment $Aliment6): self
+    {
+        $this->Aliment6 = $Aliment6;
+
+        return $this;
+    }
+
+    public function getAliment7(): ?Aliment
+    {
+        return $this->Aliment7;
+    }
+
+    public function setAliment7(?Aliment $Aliment7): self
+    {
+        $this->Aliment7 = $Aliment7;
+
+        return $this;
+    }
+
+    public function getAliment8(): ?Aliment
+    {
+        return $this->Aliment8;
+    }
+
+    public function setAliment8(?Aliment $Aliment8): self
+    {
+        $this->Aliment8 = $Aliment8;
+
+        return $this;
+    }
+
+    public function getAliment9(): ?Aliment
+    {
+        return $this->Aliment9;
+    }
+
+    public function setAliment9(?Aliment $Aliment9): self
+    {
+        $this->Aliment9 = $Aliment9;
+
+        return $this;
+    }
+
+    public function getAliment10(): ?Aliment
+    {
+        return $this->Aliment10;
+    }
+
+    public function setAliment10(?Aliment $Aliment10): self
+    {
+        $this->Aliment10 = $Aliment10;
+
+        return $this;
+    }
+
 }

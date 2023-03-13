@@ -17,6 +17,15 @@ class SondageType extends AbstractType
             ->add('Aliment1')
             ->add('Aliment2')
             ->add('Aliment3')
+            ->add('Aliment4')
+            ->add('Aliment5')
+            ->add('Aliment6')
+            ->add('Aliment7')
+            ->add('Aliment8')
+            ->add('Aliment9')
+            ->add('Aliment10')
+
+
         ;
     }
 
