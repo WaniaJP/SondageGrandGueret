@@ -14,7 +14,7 @@ class InformationNutritionelle
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\OneToOne(mappedBy: 'InformationNutritionelle')]
+    #[ORM\OneToOne(mappedBy: 'InformationNutritionelle', cascade: ['persist', 'remove'])]
     private ?Aliment $aliment = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 7, nullable: true)]
@@ -213,7 +213,7 @@ class InformationNutritionelle
     {
         return $this->id;
     }
-
+    
     public function getEnergieReglementUEKJ100g(): ?string
     {
         return $this->Energie_Reglement_UE_kJ100g;
